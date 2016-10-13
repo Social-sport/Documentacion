@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.2">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>20</y>
+      <w>160</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>Deporte
+--
+varchar(60) nombre PK
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>370</x>
+      <y>220</y>
+      <w>280</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>EventoSuscrito
+--
+varchar(60) usuario FK Usuario(email) PK
+int evento FK Evento(id) PK
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>210</x>
+      <y>20</y>
+      <w>150</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Usuario
+--
+varchar(60) email PK
+varchar(20) nombre
+varchar(60) apellidos
+varchar(120) foto
+date fecha_nacimiento
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>20</y>
+      <w>270</w>
+      <h>140</h>
+    </coordinates>
+    <panel_attributes>Evento
+--
+int id PK
+date fecha
+time hora
+varchar(60) deporte FK Deporte(nombre)
+varchar(60) autor FK Usuario(email)
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>690</x>
+      <y>20</y>
+      <w>250</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Comentario
+--
+int id PK
+date fecha
+text texto
+time hora
+varchar(60) usuario FK Usuario(email)
+int evento FK Evento(id)
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>220</y>
+      <w>290</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>DeporteSuscrito
+--
+varchar(60) deporte FK Deporte(nombre) PK
+varchar(60) usuario FK Usuario(email) PK
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>670</x>
+      <y>220</y>
+      <w>280</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>Amigo
+--
+varchar(60) usuario FK Usuario(email) PK
+varchar(60) smigo FK Usuario(email) PK
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>
