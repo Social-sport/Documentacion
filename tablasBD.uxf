@@ -37,12 +37,13 @@ style=autoresize
     <coordinates>
       <x>210</x>
       <y>20</y>
-      <w>150</w>
-      <h>140</h>
+      <w>170</w>
+      <h>150</h>
     </coordinates>
     <panel_attributes>Usuario
 --
 varchar(60) email PK
+varchar(30) nick UNIQUE
 varchar(20) nombre
 varchar(60) apellidos
 varchar(120) foto
@@ -117,7 +118,27 @@ style=autoresize
     <panel_attributes>Amigo
 --
 varchar(60) usuario FK Usuario(email) PK
-varchar(60) smigo FK Usuario(email) PK
+varchar(60) amigo FK Usuario(email) PK
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>340</y>
+      <w>300</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>Mensaje
+--
+int id PK
+date fecha
+time hora
+text texto
+varchar(60) autor FK Usuario(email) PK
+varchar(60) destinatario FK Usuario(email) PK
 style=autoresize
 </panel_attributes>
     <additional_attributes/>

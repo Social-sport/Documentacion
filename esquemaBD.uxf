@@ -4,8 +4,8 @@
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>40</x>
-      <y>20</y>
+      <x>330</x>
+      <y>30</y>
       <w>140</w>
       <h>70</h>
     </coordinates>
@@ -19,14 +19,15 @@ style=autoresize
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>30</x>
-      <y>290</y>
+      <x>320</x>
+      <y>300</y>
       <w>150</w>
-      <h>140</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>Usuario
 --
 varchar email PK
+varchar nick UNIQUE
 varchar nombre
 varchar apellidos
 varchar foto
@@ -38,8 +39,8 @@ style=autoresize
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>430</x>
-      <y>0</y>
+      <x>720</x>
+      <y>10</y>
       <w>80</w>
       <h>110</h>
     </coordinates>
@@ -55,8 +56,8 @@ style=autoresize
   <element>
     <id>UMLClass</id>
     <coordinates>
-      <x>420</x>
-      <y>290</y>
+      <x>710</x>
+      <y>300</y>
       <w>90</w>
       <h>120</h>
     </coordinates>
@@ -64,8 +65,8 @@ style=autoresize
 --
 int id PK
 date fecha
-text texto
 time hora
+text texto
 style=autoresize
 </panel_attributes>
     <additional_attributes/>
@@ -73,8 +74,8 @@ style=autoresize
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>80</y>
+      <x>390</x>
+      <y>90</y>
       <w>80</w>
       <h>230</h>
     </coordinates>
@@ -87,8 +88,8 @@ suscribe</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>30</y>
+      <x>460</x>
+      <y>40</y>
       <w>280</w>
       <h>50</h>
     </coordinates>
@@ -101,8 +102,8 @@ contiene</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>460</x>
-      <y>100</y>
+      <x>750</x>
+      <y>110</y>
       <w>60</w>
       <h>210</h>
     </coordinates>
@@ -115,8 +116,8 @@ tiene</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>340</y>
+      <x>460</x>
+      <y>350</y>
       <w>270</w>
       <h>50</h>
     </coordinates>
@@ -129,8 +130,8 @@ escribe</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>140</x>
-      <y>80</y>
+      <x>430</x>
+      <y>90</y>
       <w>310</w>
       <h>230</h>
     </coordinates>
@@ -143,8 +144,8 @@ une</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>170</x>
-      <y>100</y>
+      <x>460</x>
+      <y>110</y>
       <w>300</w>
       <h>250</h>
     </coordinates>
@@ -157,8 +158,8 @@ crea</panel_attributes>
   <element>
     <id>Relation</id>
     <coordinates>
-      <x>100</x>
-      <y>400</y>
+      <x>390</x>
+      <y>410</y>
       <w>150</w>
       <h>100</h>
     </coordinates>
@@ -166,6 +167,52 @@ crea</panel_attributes>
 m1=N
 m2=M
 sigue</panel_attributes>
-    <additional_attributes>10.0;30.0;10.0;80.0;130.0;80.0;130.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;40.0;10.0;80.0;130.0;80.0;130.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>60</x>
+      <y>310</y>
+      <w>80</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>Mensaje
+--
+int id PK
+date fecha
+time hora
+text texto
+style=autoresize
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>330</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=N
+m2=1
+envía</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>130</x>
+      <y>380</y>
+      <w>210</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=N
+m2=1
+recibe</panel_attributes>
+    <additional_attributes>10.0;20.0;190.0;20.0</additional_attributes>
   </element>
 </diagram>

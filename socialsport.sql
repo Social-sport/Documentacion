@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.11.148.2:3306
--- Tiempo de generación: 13-10-2016 a las 10:27:07
+-- Tiempo de generación: 16-10-2016 a las 11:52:07
 -- Versión del servidor: 5.5.50
 -- Versión de PHP: 5.3.3
 
@@ -115,6 +115,24 @@ CREATE TABLE IF NOT EXISTS `EventoSuscrito` (
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `Mensaje`
+--
+
+CREATE TABLE IF NOT EXISTS `Mensaje` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fecha` date NOT NULL,
+  `hora` time NOT NULL,
+  `texto` text NOT NULL,
+  `autor` varchar(60) NOT NULL,
+  `destinatario` varchar(60) NOT NULL,
+  PRIMARY KEY (`id`,`autor`,`destinatario`),
+  KEY `autor` (`autor`),
+  KEY `destinatario` (`destinatario`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `Usuario`
 --
 
@@ -124,7 +142,9 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
   `apellidos` varchar(60) NOT NULL,
   `fecha_nacimiento` date NOT NULL,
   `foto` varchar(120) NOT NULL,
-  PRIMARY KEY (`email`)
+  `nick` varchar(30) NOT NULL,
+  PRIMARY KEY (`email`),
+  UNIQUE KEY `nick` (`nick`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -135,36 +155,43 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 -- Filtros para la tabla `Amigos`
 --
 ALTER TABLE `Amigos`
-  ADD CONSTRAINT `Amigos_ibfk_2` FOREIGN KEY (`amigo`) REFERENCES `Usuario` (`email`),
-  ADD CONSTRAINT `Amigos_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`);
+  ADD CONSTRAINT `Amigos_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`),
+  ADD CONSTRAINT `Amigos_ibfk_2` FOREIGN KEY (`amigo`) REFERENCES `Usuario` (`email`);
 
 --
 -- Filtros para la tabla `Comentario`
 --
 ALTER TABLE `Comentario`
-  ADD CONSTRAINT `Comentario_ibfk_2` FOREIGN KEY (`evento`) REFERENCES `Evento` (`id`),
-  ADD CONSTRAINT `Comentario_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`);
+  ADD CONSTRAINT `Comentario_ibfk_1` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`),
+  ADD CONSTRAINT `Comentario_ibfk_2` FOREIGN KEY (`evento`) REFERENCES `Evento` (`id`);
 
 --
 -- Filtros para la tabla `DeporteSuscrito`
 --
 ALTER TABLE `DeporteSuscrito`
-  ADD CONSTRAINT `DeporteSuscrito_ibfk_2` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`),
-  ADD CONSTRAINT `DeporteSuscrito_ibfk_1` FOREIGN KEY (`deporte`) REFERENCES `Deporte` (`Nombre`);
+  ADD CONSTRAINT `DeporteSuscrito_ibfk_1` FOREIGN KEY (`deporte`) REFERENCES `Deporte` (`Nombre`),
+  ADD CONSTRAINT `DeporteSuscrito_ibfk_2` FOREIGN KEY (`usuario`) REFERENCES `Usuario` (`email`);
 
 --
 -- Filtros para la tabla `Evento`
 --
 ALTER TABLE `Evento`
-  ADD CONSTRAINT `Evento_ibfk_2` FOREIGN KEY (`creador`) REFERENCES `Usuario` (`email`),
-  ADD CONSTRAINT `Evento_ibfk_1` FOREIGN KEY (`deporte`) REFERENCES `Deporte` (`Nombre`);
+  ADD CONSTRAINT `Evento_ibfk_1` FOREIGN KEY (`deporte`) REFERENCES `Deporte` (`Nombre`),
+  ADD CONSTRAINT `Evento_ibfk_2` FOREIGN KEY (`creador`) REFERENCES `Usuario` (`email`);
 
 --
 -- Filtros para la tabla `EventoSuscrito`
 --
 ALTER TABLE `EventoSuscrito`
-  ADD CONSTRAINT `EventoSuscrito_ibfk_2` FOREIGN KEY (`Usuario`) REFERENCES `Usuario` (`email`),
-  ADD CONSTRAINT `EventoSuscrito_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `Evento` (`id`);
+  ADD CONSTRAINT `EventoSuscrito_ibfk_1` FOREIGN KEY (`idEvento`) REFERENCES `Evento` (`id`),
+  ADD CONSTRAINT `EventoSuscrito_ibfk_2` FOREIGN KEY (`Usuario`) REFERENCES `Usuario` (`email`);
+
+--
+-- Filtros para la tabla `Mensaje`
+--
+ALTER TABLE `Mensaje`
+  ADD CONSTRAINT `Mensaje_ibfk_2` FOREIGN KEY (`destinatario`) REFERENCES `Usuario` (`nick`),
+  ADD CONSTRAINT `Mensaje_ibfk_1` FOREIGN KEY (`autor`) REFERENCES `Usuario` (`nick`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
