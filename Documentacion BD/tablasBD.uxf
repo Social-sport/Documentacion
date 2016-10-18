@@ -38,7 +38,7 @@ style=autoresize
       <x>210</x>
       <y>20</y>
       <w>170</w>
-      <h>150</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -46,6 +46,7 @@ varchar(60) email PK
 varchar(30) nick UNIQUE
 varchar(20) nombre
 varchar(60) apellidos
+varchar(30) contrasena
 varchar(120) foto
 date fecha_nacimiento
 style=autoresize
@@ -58,13 +59,14 @@ style=autoresize
       <x>390</x>
       <y>20</y>
       <w>270</w>
-      <h>140</h>
+      <h>150</h>
     </coordinates>
     <panel_attributes>Evento
 --
 int id PK
 date fecha
 time hora
+text descripcion
 varchar(60) deporte FK Deporte(nombre)
 varchar(60) autor FK Usuario(email)
 style=autoresize

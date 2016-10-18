@@ -22,7 +22,7 @@ style=autoresize
       <x>320</x>
       <y>300</y>
       <w>150</w>
-      <h>150</h>
+      <h>170</h>
     </coordinates>
     <panel_attributes>Usuario
 --
@@ -30,6 +30,7 @@ varchar email PK
 varchar nick UNIQUE
 varchar nombre
 varchar apellidos
+varchar contrasena
 varchar foto
 date fecha_nacimiento
 style=autoresize
@@ -41,14 +42,15 @@ style=autoresize
     <coordinates>
       <x>720</x>
       <y>10</y>
-      <w>80</w>
-      <h>110</h>
+      <w>110</w>
+      <h>120</h>
     </coordinates>
     <panel_attributes>Evento
 --
 int id PK
 date fecha
 time hora
+text descripcion
 style=autoresize
 </panel_attributes>
     <additional_attributes/>
@@ -103,15 +105,15 @@ contiene</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>750</x>
-      <y>110</y>
+      <y>120</y>
       <w>60</w>
-      <h>210</h>
+      <h>200</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m2=1
 m1=N
 tiene</panel_attributes>
-    <additional_attributes>10.0;190.0;10.0;10.0</additional_attributes>
+    <additional_attributes>10.0;180.0;10.0;10.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -145,15 +147,15 @@ une</panel_attributes>
     <id>Relation</id>
     <coordinates>
       <x>460</x>
-      <y>110</y>
+      <y>120</y>
       <w>300</w>
-      <h>250</h>
+      <h>240</h>
     </coordinates>
     <panel_attributes>lt=&lt;-
 m1=N
 m2=1
 crea</panel_attributes>
-    <additional_attributes>280.0;10.0;170.0;140.0;10.0;230.0</additional_attributes>
+    <additional_attributes>280.0;10.0;170.0;130.0;10.0;220.0</additional_attributes>
   </element>
   <element>
     <id>Relation</id>
@@ -167,7 +169,7 @@ crea</panel_attributes>
 m1=N
 m2=M
 sigue</panel_attributes>
-    <additional_attributes>10.0;40.0;10.0;80.0;130.0;80.0;130.0;10.0;80.0;10.0</additional_attributes>
+    <additional_attributes>10.0;60.0;10.0;80.0;130.0;80.0;130.0;10.0;80.0;10.0</additional_attributes>
   </element>
   <element>
     <id>UMLClass</id>
