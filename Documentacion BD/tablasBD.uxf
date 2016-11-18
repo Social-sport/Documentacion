@@ -115,12 +115,13 @@ style=autoresize
       <x>670</x>
       <y>220</y>
       <w>280</w>
-      <h>90</h>
+      <h>110</h>
     </coordinates>
     <panel_attributes>Amigo
 --
 varchar(60) usuario FK Usuario(email) PK
 varchar(60) amigo FK Usuario(email) PK
+date fecha
 style=autoresize
 </panel_attributes>
     <additional_attributes/>
